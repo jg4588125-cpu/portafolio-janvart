@@ -1,477 +1,1394 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Janvart | Portafolio</title>
+<title>Janvart | Portafolio Creativo</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fffafa;
+    color:#333;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:white;
+    padding:14px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.marca{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.marca h1{
+    font-size:27px;
+    background:linear-gradient(
+        90deg,
+        #e85d75,
+        #f4a261,
+        #e9c46a,
+        #55a630,
+        #38a3a5,
+        #577590,
+        #9b5de5
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.marca p{
+    font-size:12px;
+    color:#777;
+    margin-top:3px;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    margin:7px 10px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#d85f93;
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.inicio{
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 8%;
+    background:
+    linear-gradient(
+        135deg,
+        #fff0f6,
+        #fff7df,
+        #efffe9,
+        #eaf8ff,
+        #f5edff
+    );
+}
+
+.inicio-contenido{
+    max-width:850px;
+}
+
+.inicio h2{
+    font-size:55px;
+    margin-bottom:20px;
+    background:linear-gradient(
+        90deg,
+        #e85d75,
+        #f4a261,
+        #55a630,
+        #38a3a5,
+        #9b5de5
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.inicio .slogan{
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.inicio p{
+    font-size:19px;
+    line-height:1.7;
+}
+
+.boton{
+    display:inline-block;
+    margin:25px 7px 0;
+    padding:14px 27px;
+    background:#d85f93;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.boton:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section{
+    padding:70px 7%;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.titulo h2{
+    font-size:37px;
+    color:#d85f93;
+}
+
+.titulo p{
+    color:#666;
+    margin:10px auto 0;
+    max-width:800px;
+    line-height:1.6;
+}
+
+/* =========================
+   HISTORIA
+========================= */
+
+.historia{
+    background:white;
+}
+
+.historia-contenido{
+    max-width:900px;
+    margin:auto;
+    background:#fff7fa;
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.historia-contenido p{
+    font-size:18px;
+    line-height:1.8;
+    text-align:center;
+}
+
+/* =========================
+   MISIÓN Y VISIÓN
+========================= */
+
+.identidad{
+    background:#f9f6ff;
+}
+
+.identidad-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.identidad-card{
+    background:white;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.identidad-card h3{
+    color:#d85f93;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.identidad-card p{
+    line-height:1.7;
+    color:#555;
+}
+
+/* =========================
+   PERSONALIZACIÓN
+========================= */
+
+.personalizacion{
+    text-align:center;
+    background:linear-gradient(135deg,#fff6e8,#f1fff0);
+}
+
+.personalizacion-contenido{
+    max-width:850px;
+    margin:auto;
+}
+
+.personalizacion p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+.personalizacion strong{
+    color:#d85f93;
+}
+
+/* =========================
+   CATALOGO
+========================= */
+
+.categoria{
+    margin-top:65px;
+}
+
+.categoria-titulo{
+    font-size:28px;
+    margin-bottom:25px;
+    padding-bottom:10px;
+    border-bottom:3px solid #f2c1d5;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+}
+
+.producto{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.10);
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.producto:hover{
+    transform:translateY(-7px);
+}
+
+.producto img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+}
+
+.info{
+    padding:20px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.info h3{
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.info p{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:7px;
+}
+
+.tamano{
+    font-size:14px;
+}
+
+.precio{
+    color:#d85f93 !important;
+    font-weight:bold;
+    margin-top:auto;
+    padding-top:8px;
+}
+
+.consultar{
+    display:block;
+    background:#d85f93;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    padding:11px;
+    border-radius:20px;
+    margin-top:14px;
+    font-weight:bold;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contacto{
+    text-align:center;
+    background:#f7edf3;
+}
+
+.contacto-grid{
+    max-width:800px;
+    margin:30px auto 0;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.contacto-item{
+    background:white;
+    padding:18px;
+    border-radius:15px;
+}
+
+.contacto-item a{
+    color:#d85f93;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    border-radius:40px;
+    font-weight:bold;
+    box-shadow:0 5px 18px rgba(0,0,0,.25);
+    z-index:999;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:28px;
+}
+
+footer p{
+    line-height:1.7;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #fffafc;
-      color: #333;
+    .inicio h2{
+        font-size:38px;
     }
 
-    header {
-      background: #ffffff;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .inicio .slogan{
+        font-size:21px;
     }
 
-    .marca h1 {
-      color: #d85f93;
-      font-size: 30px;
+    .identidad-grid,
+    .contacto-grid{
+        grid-template-columns:1fr;
     }
 
-    .marca p {
-      font-size: 13px;
-      color: #777;
-      margin-top: 3px;
-    }
+}
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #d85f93;
-    }
-
-    .inicio {
-      min-height: 430px;
-      padding: 90px 8%;
-      text-align: center;
-      background: linear-gradient(135deg, #fff0f6, #f4efff);
-    }
-
-    .inicio h2 {
-      font-size: 48px;
-      color: #d85f93;
-      margin-bottom: 15px;
-    }
-
-    .inicio p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 19px;
-      line-height: 1.6;
-    }
-
-    .boton {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 25px;
-      background: #d85f93;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 65px 8%;
-    }
-
-    .titulo {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .titulo h2 {
-      color: #d85f93;
-      font-size: 35px;
-    }
-
-    .titulo p {
-      margin-top: 10px;
-      color: #666;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .producto {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 5px 18px rgba(0,0,0,.10);
-      transition: .3s;
-    }
-
-    .producto:hover {
-      transform: translateY(-6px);
-    }
-
-    .producto img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .info {
-      padding: 18px;
-    }
-
-    .info h3 {
-      margin-bottom: 8px;
-      color: #444;
-    }
-
-    .info p {
-      color: #666;
-      line-height: 1.5;
-    }
-
-    .precio {
-      color: #d85f93 !important;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .contacto {
-      text-align: center;
-      background: #f7edf3;
-    }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 0 7px;
-        font-size: 14px;
-      }
-
-      .inicio h2 {
-        font-size: 35px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="marca">
-    <h1>JANVART</h1>
-    <p>Pinta tu plan, disfruta el momento 🎨</p>
-  </div>
+<!-- ================= HEADER ================= -->
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#catalogo">Catálogo</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<header>
+
+<div class="marca">
+
+<img src="logo-janvart.jpg"
+     class="logo"
+     alt="Logo Janvart">
+
+<div>
+<h1>JANVART</h1>
+<p>Pinta tu plan, disfruta el momento 🎨</p>
+</div>
+
+</div>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#historia">Historia</a>
+<a href="#identidad">Nosotros</a>
+<a href="#catalogo">Catálogo</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
 </header>
 
+
+<!-- ================= INICIO ================= -->
+
 <section class="inicio" id="inicio">
-  <h2>Arte hecho con creatividad</h2>
 
-  <p>
-    Bienvenido al portafolio de Janvart. Descubre nuestros productos
-    artesanales, tejidos y creaciones elaboradas con dedicación.
-  </p>
+<div class="inicio-contenido">
 
-  <a class="boton" href="#catalogo">Ver catálogo</a>
+<h2>Creatividad sin límites</h2>
+
+<p class="slogan">
+🎨 Pinta tu plan, disfruta el momento
+</p>
+
+<p>
+En Janvart transformamos ideas en creaciones llenas de color,
+personalidad y significado. Descubre nuestros tejidos,
+alcancías, figuras artesanales y creaciones con limpiapipas.
+</p>
+
+<a class="boton" href="#catalogo">
+Ver catálogo
+</a>
+
+<a class="boton"
+href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20conocer%20más%20sobre%20sus%20productos."
+target="_blank">
+Consultar por WhatsApp
+</a>
+
+</div>
+
 </section>
+
+
+<!-- ================= HISTORIA ================= -->
+
+<section class="historia" id="historia">
+
+<div class="titulo">
+<h2>Nuestra historia</h2>
+<p>Una idea que nació de las ganas de crear.</p>
+</div>
+
+<div class="historia-contenido">
+
+<p>
+Janvart nació de una experiencia sencilla: observar productos
+artesanales que nos encantaban, pero que en algunas ocasiones
+no podíamos adquirir por su precio. En lugar de renunciar a
+esas ideas, decidimos intentar crearlas nosotros mismos.
+<br><br>
+Así descubrimos que el arte no debía sentirse como una barrera,
+sino como una oportunidad para imaginar, aprender y transformar
+una idea en algo propio.
+<br><br>
+De esa experiencia nació Janvart: un espacio donde queremos
+demostrar que no es necesario ser experto para comenzar.
+Creemos en <strong>crear sin miedo, experimentar sin juzgar y
+disfrutar cada momento del proceso creativo.</strong>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= MISIÓN VISIÓN ================= -->
+
+<section class="identidad" id="identidad">
+
+<div class="titulo">
+<h2>La esencia de Janvart</h2>
+<p>Arte, creatividad, inclusión y experiencias.</p>
+</div>
+
+<div class="identidad-grid">
+
+<div class="identidad-card">
+
+<h3>🎨 Misión</h3>
+
+<p>
+Crear productos y experiencias artísticas que permitan a las
+personas desconectarse de la rutina, explorar su creatividad y
+expresarse libremente. En Janvart promovemos un espacio donde
+se pueda pintar sin juzgar, crear sin saber y compartir sin
+importar las diferencias, haciendo del arte una experiencia
+accesible, cercana e inspiradora.
+</p>
+
+</div>
+
+
+<div class="identidad-card">
+
+<h3>🌈 Visión 2030</h3>
+
+<p>
+Para 2030, Janvart busca convertirse en un punto de encuentro
+creativo e inspirador con reconocimiento en Latinoamérica,
+destacándose por la innovación, la inclusión y las experiencias
+artísticas. Queremos impulsar el arte como una herramienta de
+exploración, bienestar y expresión, creando oportunidades para
+que personas con diferentes capacidades puedan participar,
+crear y descubrir su potencial.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PERSONALIZACION ================= -->
+
+<section class="personalizacion">
+
+<div class="titulo">
+<h2>✨ Tú imaginas, nosotros creamos</h2>
+</div>
+
+<div class="personalizacion-contenido">
+
+<p>
+Nuestros productos pueden realizarse en diferentes
+<strong>tamaños, colores y estilos</strong>.
+Los tamaños indicados en el catálogo son únicamente
+referencias aproximadas.
+<br><br>
+Si tienes una idea diferente, puedes comunicarte con Janvart
+para consultar la posibilidad de crear una pieza
+<strong>personalizada especialmente para ti.</strong>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATALOGO ================= -->
 
 <section id="catalogo">
 
-  <div class="titulo">
-    <h2>Catálogo Janvart</h2>
-    <p>Conoce algunas de nuestras creaciones.</p>
-  </div>
+<div class="titulo">
 
-  <div class="productos">
+<h2>Catálogo Janvart</h2>
 
-  <!-- ABEJA -->
-<div class="producto">
-  <img src="abeja.jpg" alt="Abeja tejida">
-  <div class="info">
-    <h3>Abeja tejida</h3>
-    <p>Amigurumi artesanal tejido a mano.</p>
-    <p class="precio">$35.000 COP</p>
-  </div>
+<p>
+Explora nuestras creaciones. Los precios pueden variar según
+el tamaño, materiales y nivel de personalización, por eso
+puedes consultarnos directamente.
+</p>
+
 </div>
+
+
+<!-- =================================================
+     AMIGURUMIS
+================================================= -->
+
+<div class="categoria">
+
+<h3 class="categoria-titulo">🧶 Amigurumis y tejidos</h3>
+
+<div class="productos">
+
+
+<!-- ABEJA -->
+<div class="producto">
+<img src="abeja.jpg" alt="Abeja tejida">
+<div class="info">
+<h3>Abeja tejida</h3>
+<p>Amigurumi artesanal tejido a mano.</p>
+<p class="tamano">Tamaño aproximado: 10–20 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Abeja%20tejida." target="_blank">Consultar</a>
+</div>
+</div>
+
 
 <!-- DEADPOOL -->
 <div class="producto">
-  <img src="deadpool.jpg" alt="Deadpool tejido">
-  <div class="info">
-    <h3>Deadpool tejido</h3>
-    <p>Figura artesanal elaborada a crochet.</p>
-    <p class="precio">$75.000 COP</p>
-  </div>
+<img src="deadpool.jpg" alt="Deadpool tejido">
+<div class="info">
+<h3>Deadpool tejido</h3>
+<p>Figura artesanal elaborada a crochet.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Deadpool%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- DINOSAURIO -->
 <div class="producto">
-  <img src="dinosaurio.jpg" alt="Dinosaurio tejido">
-  <div class="info">
-    <h3>Dinosaurio tejido</h3>
-    <p>Amigurumi artesanal ideal para regalo.</p>
-    <p class="precio">$55.000 COP</p>
-  </div>
+<img src="dinosaurio.jpg" alt="Dinosaurio tejido">
+<div class="info">
+<h3>Dinosaurio tejido</h3>
+<p>Amigurumi artesanal ideal para regalo.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Dinosaurio%20tejido." target="_blank">Consultar</a>
+</div>
 </div>
 
-<!-- FLORES TEJIDAS -->
-<div class="producto">
-  <img src="flores-tejidas.jpg" alt="Flores tejidas">
-  <div class="info">
-    <h3>Flores tejidas</h3>
-    <p>Detalle artesanal para regalar y decorar.</p>
-    <p class="precio">$45.000 COP</p>
-  </div>
-</div>
 
 <!-- FRUTA -->
 <div class="producto">
-  <img src="fruta.jpg" alt="Fruta tejida">
-  <div class="info">
-    <h3>Fruta tejida</h3>
-    <p>Diseño artesanal elaborado a crochet.</p>
-    <p class="precio">$30.000 COP</p>
-  </div>
+<img src="fruta.jpg" alt="Fruta tejida">
+<div class="info">
+<h3>Fruta tejida</h3>
+<p>Diseño artesanal elaborado a crochet.</p>
+<p class="tamano">Tamaño aproximado: 8–18 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Fruta%20tejida." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- GRINCH -->
 <div class="producto">
-  <img src="grinch.jpg" alt="Grinch tejido">
-  <div class="info">
-    <h3>Grinch tejido</h3>
-    <p>Figura artesanal temática tejida a mano.</p>
-    <p class="precio">$65.000 COP</p>
-  </div>
+<img src="grinch.jpg" alt="Grinch tejido">
+<div class="info">
+<h3>Grinch tejido</h3>
+<p>Figura temática elaborada a mano.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Grinch%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- HIPOPOTAMO -->
 <div class="producto">
-  <img src="hipopotamo.jpg" alt="Hipopótamo tejido">
-  <div class="info">
-    <h3>Hipopótamo tejido</h3>
-    <p>Amigurumi artesanal elaborado con dedicación.</p>
-    <p class="precio">$50.000 COP</p>
-  </div>
+<img src="hipopotamo.jpg" alt="Hipopótamo tejido">
+<div class="info">
+<h3>Hipopótamo tejido</h3>
+<p>Amigurumi artesanal elaborado con dedicación.</p>
+<p class="tamano">Tamaño aproximado: 15–25 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Hipopotamo%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- HOMERO -->
 <div class="producto">
-  <img src="homero.jpg" alt="Homero tejido">
-  <div class="info">
-    <h3>Homero tejido</h3>
-    <p>Figura artesanal elaborada a crochet.</p>
-    <p class="precio">$70.000 COP</p>
-  </div>
+<img src="homero.jpg" alt="Homero tejido">
+<div class="info">
+<h3>Homero tejido</h3>
+<p>Figura artesanal elaborada a crochet.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Homero%20tejido." target="_blank">Consultar</a>
+</div>
 </div>
 
-<!-- MUÑECA -->
+
+<!-- MUÑECA - ARCHIVO muneca.jpg -->
 <div class="producto">
-  <img src="muneca.jpg" alt="Muñeca tejida">
-  <div class="info">
-    <h3>Muñeca tejida</h3>
-    <p>Muñeca artesanal con detalles hechos a mano.</p>
-    <p class="precio">$65.000 COP</p>
-  </div>
+<img src="muneca.jpg" alt="Muñeca tejida">
+<div class="info">
+<h3>Muñeca tejida</h3>
+<p>Muñeca artesanal con detalles hechos a mano.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Muneca%20tejida." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- MUSHU -->
 <div class="producto">
-  <img src="mushu.jpg" alt="Mushu tejido">
-  <div class="info">
-    <h3>Mushu tejido</h3>
-    <p>Figura artesanal tejida con gran detalle.</p>
-    <p class="precio">$75.000 COP</p>
-  </div>
+<img src="mushu.jpg" alt="Mushu tejido">
+<div class="info">
+<h3>Mushu tejido</h3>
+<p>Figura artesanal tejida con gran detalle.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Mushu%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- PERRITA -->
 <div class="producto">
-  <img src="perrita.jpg" alt="Perrita tejida">
-  <div class="info">
-    <h3>Perrita tejida</h3>
-    <p>Amigurumi artesanal elaborado a mano.</p>
-    <p class="precio">$55.000 COP</p>
-  </div>
+<img src="perrita.jpg" alt="Perrita tejida">
+<div class="info">
+<h3>Perrita tejida</h3>
+<p>Amigurumi artesanal elaborado a mano.</p>
+<p class="tamano">Tamaño aproximado: 15–25 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Perrita%20tejida." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- PERRO -->
 <div class="producto">
-  <img src="perro.jpg" alt="Perro tejido">
-  <div class="info">
-    <h3>Perro tejido</h3>
-    <p>Figura tejida ideal para regalo o decoración.</p>
-    <p class="precio">$55.000 COP</p>
-  </div>
+<img src="perro.jpg" alt="Perro tejido">
+<div class="info">
+<h3>Perro tejido</h3>
+<p>Figura tejida ideal para regalo o decoración.</p>
+<p class="tamano">Tamaño aproximado: 15–25 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Perro%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- POLLITO -->
 <div class="producto">
-  <img src="pollito.jpg" alt="Pollito tejido">
-  <div class="info">
-    <h3>Pollito tejido</h3>
-    <p>Pequeño amigurumi artesanal.</p>
-    <p class="precio">$30.000 COP</p>
-  </div>
+<img src="pollito.jpg" alt="Pollito tejido">
+<div class="info">
+<h3>Pollito tejido</h3>
+<p>Pequeño amigurumi artesanal.</p>
+<p class="tamano">Tamaño aproximado: 8–18 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Pollito%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- POLLO -->
 <div class="producto">
-  <img src="pollo.jpg" alt="Pollo tejido">
-  <div class="info">
-    <h3>Pollo tejido</h3>
-    <p>Diseño artesanal tejido a crochet.</p>
-    <p class="precio">$35.000 COP</p>
-  </div>
+<img src="pollo.jpg" alt="Pollo tejido">
+<div class="info">
+<h3>Pollo tejido</h3>
+<p>Diseño artesanal tejido a crochet.</p>
+<p class="tamano">Tamaño aproximado: 10–20 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Pollo%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- POLLOS -->
 <div class="producto">
-  <img src="pollos.jpg" alt="Pollos tejidos">
-  <div class="info">
-    <h3>Set de pollos tejidos</h3>
-    <p>Conjunto artesanal de figuras tejidas.</p>
-    <p class="precio">$60.000 COP</p>
-  </div>
+<img src="pollos.jpg" alt="Set de pollos tejidos">
+<div class="info">
+<h3>Set de pollos tejidos</h3>
+<p>Conjunto artesanal de figuras tejidas.</p>
+<p class="tamano">Tamaño adaptable según el pedido.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Set%20de%20pollos%20tejidos." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- RAPUNZEL -->
 <div class="producto">
-  <img src="rapunzel.jpg" alt="Rapunzel tejida">
-  <div class="info">
-    <h3>Rapunzel tejida</h3>
-    <p>Muñeca artesanal con detalles a crochet.</p>
-    <p class="precio">$80.000 COP</p>
-  </div>
+<img src="rapunzel.jpg" alt="Rapunzel tejida">
+<div class="info">
+<h3>Rapunzel tejida</h3>
+<p>Muñeca artesanal con detalles a crochet.</p>
+<p class="tamano">Tamaño aproximado: 20–35 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Rapunzel%20tejida." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- SCOOBY -->
 <div class="producto">
-  <img src="scooby.jpg" alt="Scooby tejido">
-  <div class="info">
-    <h3>Scooby tejido</h3>
-    <p>Amigurumi artesanal elaborado a mano.</p>
-    <p class="precio">$70.000 COP</p>
-  </div>
+<img src="scooby.jpg" alt="Scooby tejido">
+<div class="info">
+<h3>Scooby tejido</h3>
+<p>Amigurumi artesanal elaborado a mano.</p>
+<p class="tamano">Tamaño aproximado: 20–35 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Scooby%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- SNOOPY -->
 <div class="producto">
-  <img src="snoopy.jpg" alt="Snoopy tejido">
-  <div class="info">
-    <h3>Snoopy tejido</h3>
-    <p>Figura artesanal tejida a crochet.</p>
-    <p class="precio">$60.000 COP</p>
-  </div>
+<img src="snoopy.jpg" alt="Snoopy tejido">
+<div class="info">
+<h3>Snoopy tejido</h3>
+<p>Figura artesanal tejida a crochet.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Snoopy%20tejido." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- SONIC -->
 <div class="producto">
-  <img src="sonic.jpg" alt="Sonic tejido">
-  <div class="info">
-    <h3>Sonic tejido</h3>
-    <p>Figura artesanal llena de color y detalle.</p>
-    <p class="precio">$75.000 COP</p>
-  </div>
+<img src="sonic.jpg" alt="Sonic tejido">
+<div class="info">
+<h3>Sonic tejido</h3>
+<p>Figura artesanal llena de color y detalle.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Sonic%20tejido." target="_blank">Consultar</a>
+</div>
 </div>
 
-<!-- ARAÑA -->
+
+<!-- ARAÑA - ARCHIVO spider.jpg -->
 <div class="producto">
-  <img src="spider.jpg" alt="Araña tejida">
-  <div class="info">
-    <h3>Araña tejida</h3>
-    <p>Creación artesanal elaborada a crochet.</p>
-    <p class="precio">$40.000 COP</p>
-  </div>
+<img src="spider.jpg" alt="Araña tejida">
+<div class="info">
+<h3>Araña tejida</h3>
+<p>Creación artesanal elaborada a crochet.</p>
+<p class="tamano">Tamaño aproximado: 10–25 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Arana%20tejida." target="_blank">Consultar</a>
+</div>
 </div>
 
-<!-- PUNTADA -->
+
+<!-- STITCH - ARCHIVO stich.jpg -->
 <div class="producto">
-  <img src="stich.jpg" alt="Creación tejida">
-  <div class="info">
-    <h3>Creación tejida</h3>
-    <p>Diseño artesanal elaborado cuidadosamente.</p>
-    <p class="precio">$45.000 COP</p>
-  </div>
+<img src="stich.jpg" alt="Stitch tejido">
+<div class="info">
+<h3>Stitch tejido</h3>
+<p>Figura artesanal elaborada cuidadosamente.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Stitch%20tejido." target="_blank">Consultar</a>
+</div>
 </div>
 
-<!-- TIGRE -->
+
+<!-- TIGER - ARCHIVO tigger.jpg -->
 <div class="producto">
-  <img src="tigger.jpg" alt="Tigre tejido">
-  <div class="info">
-    <h3>Tigre tejido</h3>
-    <p>Amigurumi artesanal tejido a mano.</p>
-    <p class="precio">$65.000 COP</p>
-  </div>
+<img src="tigger.jpg" alt="Tiger tejido">
+<div class="info">
+<h3>Tiger tejido</h3>
+<p>Amigurumi artesanal tejido a mano.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Tiger%20tejido." target="_blank">Consultar</a>
+</div>
 </div>
 
-<!-- JUGUETE -->
+
+<!-- JUGUETE - ARCHIVO toy.jpg -->
 <div class="producto">
- <img src="toy.jpg" alt="Juguete artesanal">
-  <div class="info">
-    <h3>Juguete artesanal</h3>
-    <p>Creación artesanal personalizada.</p>
-    <p class="precio">$45.000 COP</p>
-  </div>
+<img src="toy.jpg" alt="Juguete artesanal">
+<div class="info">
+<h3>Juguete artesanal</h3>
+<p>Creación artesanal personalizada.</p>
+<p class="tamano">Tamaño adaptable según el diseño.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Juguete%20artesanal." target="_blank">Consultar</a>
 </div>
+</div>
+
 
 <!-- VACA -->
 <div class="producto">
-  <img src="vaca.jpg" alt="Vaca tejida">
-  <div class="info">
-    <h3>Vaca tejida</h3>
-    <p>Amigurumi artesanal elaborado a crochet.</p>
-    <p class="precio">$60.000 COP</p>
-  </div>
+<img src="vaca.jpg" alt="Vaca tejida">
+<div class="info">
+<h3>Vaca tejida</h3>
+<p>Amigurumi artesanal elaborado a crochet.</p>
+<p class="tamano">Tamaño aproximado: 15–30 cm.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Vaca%20tejida." target="_blank">Consultar</a>
+</div>
 </div>
 
-  </div>
+</div>
+</div>
+
+
+<!-- =================================================
+     ALCANCIAS
+================================================= -->
+
+<div class="categoria">
+
+<h3 class="categoria-titulo">🎨 Alcancías personalizadas</h3>
+
+<div class="productos">
+
+
+<!-- ALCANCIA CANGREJO -->
+<div class="producto">
+<img src="alcancia-cangrejo.jpg" alt="Alcancía Cangrejo">
+<div class="info">
+<h3>Alcancía Cangrejo</h3>
+<p>Alcancía decorativa artesanal.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Cangrejo." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA CUBONE -->
+<div class="producto">
+<img src="alcancia-cubone.jpg" alt="Alcancía Cubone">
+<div class="info">
+<h3>Alcancía Cubone</h3>
+<p>Figura decorativa personalizada.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Cubone." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA EEVEE -->
+<div class="producto">
+<img src="alcancia-eevee.jpg" alt="Alcancía Eevee">
+<div class="info">
+<h3>Alcancía Eevee</h3>
+<p>Alcancía artesanal personalizada.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Eevee." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA GARFIELD -->
+<div class="producto">
+<img src="alcancia-garfield.jpg" alt="Alcancía Garfield">
+<div class="info">
+<h3>Alcancía Garfield</h3>
+<p>Alcancía decorativa elaborada artesanalmente.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Garfield." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA GATO -->
+<div class="producto">
+<img src="alcancia-gato.jpg" alt="Alcancía Gato">
+<div class="info">
+<h3>Alcancía Gato</h3>
+<p>Diseño artesanal decorativo.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Gato." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA GOKU -->
+<div class="producto">
+<img src="alcancia-goku.jpg" alt="Alcancía Goku">
+<div class="info">
+<h3>Alcancía Goku</h3>
+<p>Alcancía personalizada con acabado artesanal.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Goku." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA KONG -->
+<div class="producto">
+<img src="alcancia-kong.jpg" alt="Alcancía Kong">
+<div class="info">
+<h3>Alcancía Kong</h3>
+<p>Diseño artesanal personalizado.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Kong." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA MAFALDA -->
+<div class="producto">
+<img src="alcancia-mafalda.jpg" alt="Alcancía Mafalda">
+<div class="info">
+<h3>Alcancía Mafalda</h3>
+<p>Alcancía artesanal con detalles personalizados.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Mafalda." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA MARIO - FOTO 1 -->
+<div class="producto">
+<img src="alcancia-mario-1.jpg" alt="Alcancía Mario">
+<div class="info">
+<h3>Alcancía Mario</h3>
+<p>Alcancía artesanal personalizada.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Mario." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA SNOOPY -->
+<div class="producto">
+<img src="alcancia-snoopy.jpg" alt="Alcancía Snoopy">
+<div class="info">
+<h3>Alcancía Snoopy</h3>
+<p>Diseño artesanal personalizable.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Snoopy." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA STITCH -->
+<div class="producto">
+<img src="alcancia-stich.jpg" alt="Alcancía Stitch">
+<div class="info">
+<h3>Alcancía Stitch</h3>
+<p>Alcancía artesanal personalizada.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Stitch." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ALCANCIA TASMANIA -->
+<div class="producto">
+<img src="alcancia-tasmania.jpg" alt="Alcancía Tasmania">
+<div class="info">
+<h3>Alcancía Tasmania</h3>
+<p>Figura decorativa artesanal y personalizable.</p>
+<p class="tamano">Disponible en tamaños personalizados.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Alcancia%20Tasmania." target="_blank">Consultar</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- =================================================
+     LIMPIAPIPAS
+================================================= -->
+
+<div class="categoria">
+
+<h3 class="categoria-titulo">🌸 Flores y creaciones en limpiapipas</h3>
+
+<div class="productos">
+
+
+<!-- FLORES LIMPIAPIPAS 1 -->
+<div class="producto">
+<img src="flores-limpiapipas-1.jpg" alt="Flores en limpiapipas">
+<div class="info">
+<h3>Flores en limpiapipas</h3>
+<p>Arreglo artesanal hecho a mano.</p>
+<p class="tamano">Tamaño y colores personalizables.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20las%20Flores%20en%20limpiapipas." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- FLORES LIMPIAPIPAS 2 -->
+<div class="producto">
+<img src="flores-limpiapipas-2.jpg" alt="Arreglo en limpiapipas">
+<div class="info">
+<h3>Arreglo floral</h3>
+<p>Flores artesanales elaboradas con limpiapipas.</p>
+<p class="tamano">Tamaño y colores personalizables.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20un%20Arreglo%20floral%20en%20limpiapipas." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- FLORES LIMPIAPIPAS 3 -->
+<div class="producto">
+<img src="flores-limpiapipas-3.jpg" alt="Flores artesanales">
+<div class="info">
+<h3>Ramo artesanal</h3>
+<p>Detalle creativo elaborado a mano.</p>
+<p class="tamano">Cantidad y colores personalizables.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20un%20Ramo%20artesanal." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- FLORES LIMPIAPIPAS 4 -->
+<div class="producto">
+<img src="flores-limpiapipas-4.jpg" alt="Flores de limpiapipas">
+<div class="info">
+<h3>Flores personalizadas</h3>
+<p>Creación artesanal para regalos y ocasiones especiales.</p>
+<p class="tamano">Diseño personalizable.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20Flores%20personalizadas." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- FLORES LIMPIAPIPAS 5 -->
+<div class="producto">
+<img src="flores-limpiapipas-5.jpg" alt="Ramo de limpiapipas">
+<div class="info">
+<h3>Ramo de limpiapipas</h3>
+<p>Ramo artesanal hecho cuidadosamente.</p>
+<p class="tamano">Cantidad y colores personalizables.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20un%20Ramo%20de%20limpiapipas." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- FLORES LIMPIAPIPAS 6 -->
+<div class="producto">
+<img src="flores-limpiapipas-6.jpg" alt="Arreglo floral artesanal">
+<div class="info">
+<h3>Arreglo floral personalizado</h3>
+<p>Detalle elaborado artesanalmente.</p>
+<p class="tamano">Diseño adaptable a tu idea.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20un%20Arreglo%20floral%20personalizado." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ESPEJO LIMPIAPIPAS -->
+<div class="producto">
+<img src="espejo-limpiapipas.jpg" alt="Espejo decorado con limpiapipas">
+<div class="info">
+<h3>Espejo con limpiapipas</h3>
+<p>Espejo decorativo artesanal y personalizable.</p>
+<p class="tamano">Colores y diseño personalizables.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Espejo%20con%20limpiapipas." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- PESEBRE -->
+<div class="producto">
+<img src="pesebre.jpg" alt="Pesebre artesanal">
+<div class="info">
+<h3>Pesebre artesanal</h3>
+<p>Creación decorativa elaborada artesanalmente.</p>
+<p class="tamano">Tamaño adaptable según el pedido.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20el%20Pesebre%20artesanal." target="_blank">Consultar</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- =================================================
+     FIGURAS ARTESANALES
+================================================= -->
+
+<div class="categoria">
+
+<h3 class="categoria-titulo">🖌️ Figuras y decoración artesanal</h3>
+
+<div class="productos">
+
+
+<!-- FIGURA GOKU -->
+<div class="producto">
+<img src="figura-goku.jpg" alt="Figura Goku">
+<div class="info">
+<h3>Figura Goku</h3>
+<p>Figura decorativa elaborada artesanalmente.</p>
+<p class="tamano">Tamaño adaptable según el diseño.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Figura%20Goku." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ESTATUA GATO -->
+<div class="producto">
+<img src="estatua-gato.jpg" alt="Estatua de gato">
+<div class="info">
+<h3>Estatua de gato</h3>
+<p>Figura decorativa artesanal.</p>
+<p class="tamano">Tamaño adaptable según el pedido.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Estatua%20de%20gato." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ESTATUA GATO FOTO 2 -->
+<div class="producto">
+<img src="estatua-gato-2.jpg" alt="Estatua de gato diseño">
+<div class="info">
+<h3>Estatua de gato - diseño</h3>
+<p>Otra presentación de nuestras figuras artesanales.</p>
+<p class="tamano">Tamaño adaptable según el pedido.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Estatua%20de%20gato." target="_blank">Consultar</a>
+</div>
+</div>
+
+
+<!-- ESTATUA ANGEL -->
+<div class="producto">
+<img src="estatua-angel.jpg" alt="Estatua de ángel">
+<div class="info">
+<h3>Estatua de ángel</h3>
+<p>Figura decorativa elaborada artesanalmente.</p>
+<p class="tamano">Tamaño adaptable según el diseño.</p>
+<p class="precio">Consultar precio</p>
+<a class="consultar" href="https://wa.me/573228527364?text=Hola%20Janvart,%20quiero%20consultar%20por%20la%20Estatua%20de%20angel." target="_blank">Consultar</a>
+</div>
+</div>
+
+</div>
+</div>
+
 </section>
+
+
+<!-- ================= CONTACTO ================= -->
 
 <section class="contacto" id="contacto">
 
-  <div class="titulo">
-    <h2>¿Te gustó alguno?</h2>
-    <p>
-      Comunícate con Janvart para consultar precios,
-      tamaños, colores y personalizaciones.
-    </p>
-  </div>
+<div class="titulo">
 
-  <a class="boton" href="#inicio">Volver al inicio</a>
+<h2>Hablemos de tu próxima creación 💡</h2>
+
+<p>
+¿Viste algo que te gustó o tienes una idea diferente?
+Comunícate con Janvart y cuéntanos qué quieres crear.
+</p>
+
+</div>
+
+
+<a class="boton"
+href="https://wa.me/573228527364?text=Hola%20Janvart,%20vi%20su%20portafolio%20y%20quiero%20informacion%20sobre%20sus%20productos."
+target="_blank">
+
+💬 Escribir por WhatsApp
+
+</a>
+
+
+<div class="contacto-grid">
+
+<div class="contacto-item">
+<strong>📍 Ubicación</strong>
+<p>Chía, Cundinamarca</p>
+</div>
+
+<div class="contacto-item">
+<strong>📧 Correo</strong>
+<p>
+<a href="mailto:Janvart09@gmail.com">
+Janvart09@gmail.com
+</a>
+</p>
+</div>
+
+<div class="contacto-item">
+<strong>📷 Instagram</strong>
+<p>
+<a href="https://www.instagram.com/janvart.co/"
+target="_blank">
+@janvart.co
+</a>
+</p>
+</div>
+
+<div class="contacto-item">
+<strong>📘 Facebook</strong>
+<p>JANVART</p>
+</div>
+
+<div class="contacto-item">
+<strong>🎵 TikTok</strong>
+<p>Crea con Janvart</p>
+</div>
+
+<div class="contacto-item">
+<strong>💬 WhatsApp</strong>
+<p>322 852 7364</p>
+</div>
+
+</div>
 
 </section>
 
+
+<!-- WHATSAPP FLOTANTE -->
+
+<a class="whatsapp"
+href="https://wa.me/573228527364?text=Hola%20Janvart,%20vi%20su%20portafolio%20y%20quiero%20hacer%20una%20consulta."
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-  <p>© 2026 Janvart S.A.S. | Pinta tu plan, disfruta el momento 🎨</p>
+
+<p>
+<strong>JANVART S.A.S.</strong>
+<br>
+🎨 Pinta tu plan, disfruta el momento
+<br>
+Chía, Cundinamarca
+<br><br>
+© 2026 Janvart S.A.S.
+</p>
+
 </footer>
 
 </body>
